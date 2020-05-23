@@ -1,4 +1,4 @@
-package mg.puc.tre;
+package mg.puc;
 
 import java.io.IOException;
 import java.nio.file.Files;

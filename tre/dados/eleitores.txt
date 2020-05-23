@@ -1,0 +1,1 @@
+nome; número do título eleitoral; nome do município eleitoral; zona eleitoral; seção eleitoral
