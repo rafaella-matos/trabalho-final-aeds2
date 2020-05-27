@@ -63,17 +63,13 @@ public class TreServico {
     while (!municipios.pilhaVazia()) {
       sb.append(municipios.desempilhar().toString())
               .append("\n");
-      if (index % 1000 == 0) {
-        String path = caminho + "/zona" + index + ".txt";
-        try {
-          writeFile(path, sb.toString());
-        } catch (IOException e) {
-          System.out.println("Não foi possível escreve no caminho " + path);
-          e.printStackTrace();
-        }
-        sb.setLength(0);
-      }
       index++;
+      try {
+        writeFile(path, sb.toString());
+      } catch (IOException e) {
+        System.out.println("Não foi possível escrever no caminho " + path);
+        e.printStackTrace();
+      }
     }
   }
 }
