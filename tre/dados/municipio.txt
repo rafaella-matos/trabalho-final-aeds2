@@ -1,6 +1,6 @@
-Ubá;MG;93781;10
-Belo Horizonte;1433000;41
-Nova Lima;MG;87391;10
-Uberlândia;MG;584102;15
-Uberaba;MG;289376;14
-Betim;MG;375331;10
+Ubá;MG;93;10
+Belo Horizonte;1433;41
+Nova Lima;MG;87;10
+Uberlândia;MG;584;15
+Uberaba;MG;289;14
+Betim;MG;375;10

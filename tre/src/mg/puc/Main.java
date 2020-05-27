@@ -19,7 +19,14 @@ public class Main {
       System.out.println("Não foi possível ler o arquivo com eleitores");
       e.printStackTrace();
     }
+    try {
+      municipios = treServico.cadastraMunicipio(caminhoAtual + "municipio.txt");
+    } catch (IOException e) {
+      System.out.println("Não foi possível ler o arquivo com municípios");
+      e.printStackTrace();
+    }
     treServico.exportarEleitores(caminhoAtual, eleitores);
+    treServico.exportarMunicipio(caminhoAtual, municipios);
   }
 
   public static String readFile(String path) throws IOException {
