@@ -13,6 +13,14 @@ public class Main {
     String caminhoAtual = System.getProperty("user.dir") + "/";
     TreServico treServico = new TreServico();
     Pilha<Eleitor> eleitores = null;
+    Pilha<Municipio> municipios = null;
+    Pilha<Partido> partidos = null;
+    try {
+      partidos = treServico.cadastrarPartido(caminhoAtual + "partido.txt");
+    } catch (IOException e) {
+      System.out.println("Não foi possível ler o arquivo com os partidos");
+      e.printStackTrace();
+    }
     try {
       eleitores = treServico.cadastrarEleitores(caminhoAtual + "eleitores.txt");
     } catch (IOException e) {
@@ -22,7 +30,7 @@ public class Main {
     try {
       municipios = treServico.cadastraMunicipio(caminhoAtual + "municipio.txt");
     } catch (IOException e) {
-      System.out.println("Não foi possível ler o arquivo com municípios");
+      System.out.println("Não foi possível ler o arquivo com os municípios");
       e.printStackTrace();
     }
     treServico.exportarEleitores(caminhoAtual, eleitores);

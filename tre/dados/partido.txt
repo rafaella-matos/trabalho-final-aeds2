@@ -1,0 +1,9 @@
+Partido dos Trabalhadores; PT;
+Partido Verde; PV;
+Partido Liberal; PL;
+Partido da Social Democracia Brasileira; PSDB;
+Partido Socialista Brasileiro; PSB;
+Partido Novo; NOVO;
+Partido Trabalhista Cristão; PTC;
+Democratas; DEM;
+Partido da Mulher Brasileira; PMB;

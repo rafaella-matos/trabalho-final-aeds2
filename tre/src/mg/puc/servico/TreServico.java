@@ -12,6 +12,18 @@ import static mg.puc.Main.writeFile;
 import static mg.puc.utils.Utils.trimAll;
 
 public class TreServico {
+  public Pilha <Partido> cadastrarPartido(String caminho) throws IOException {
+
+    Pilha<Partido> partidos = new Pilha<>();
+    String file = Main.readFile(caminho);
+    String[] linhas = file.split("\n");
+    for (String linha : linhas) {
+      String[] tokens = linha.split(";");
+      trimAll(tokens);
+      partidos.empilhar(new Partido(tokens[0], tokens[1]);
+    }
+    return partidos;
+  }
 
   public Pilha<Eleitor> cadastrarEleitores(String caminho) throws IOException {
     Pilha<Eleitor> eleitores = new Pilha<>();
@@ -56,20 +68,35 @@ public class TreServico {
       }
       index++;
     }
-  }
+
   public void exportarMunicipio(String caminho, Pilha<Municipio> municipios) {
     int index = 0;
     StringBuilder sb = new StringBuilder();
     while (!municipios.pilhaVazia()) {
       sb.append(municipios.desempilhar().toString())
               .append("\n");
-      index++;
       try {
         writeFile(path, sb.toString());
       } catch (IOException e) {
         System.out.println("Não foi possível escrever no caminho " + path);
         e.printStackTrace();
       }
+      index++;
     }
   }
+    public void exportarPartido(String caminho, Pilha<Partido> partidos) {
+      int index = 0;
+      StringBuilder sb = new StringBuilder();
+      while (!partidos.pilhaVazia()) {
+        sb.append(partidos.desempilhar().toString())
+                .append("\n");
+        try {
+          writeFile(path, sb.toString());
+        } catch (IOException e) {
+          System.out.println("Não foi possível escrever no caminho " + path);
+          e.printStackTrace();
+        }
+        index++;
+      }
+    }
 }
