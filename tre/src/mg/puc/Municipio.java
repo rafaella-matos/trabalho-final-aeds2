@@ -6,12 +6,15 @@ public class Municipio {
   private final String estado;
   private final long habitantes;
   private final int vagas;
+  private final String caminho;
+
 
   public Municipio(String nome, String estado, long habitantes, int vagas) {
     this.nome = nome;
     this.estado = estado;
     this.habitantes = habitantes;
     this.vagas = vagas;
+    this.caminho = caminho;
   }
 
   public String getNome() {

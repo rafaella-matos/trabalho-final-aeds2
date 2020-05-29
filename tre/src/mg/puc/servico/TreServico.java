@@ -1,5 +1,7 @@
 package mg.puc.servico;
 
+import mg.puc.Partido
+import mg.puc.Municipio
 import mg.puc.Eleitor;
 import mg.puc.Main;
 import mg.puc.modelos.Pilha;
@@ -61,7 +63,7 @@ public class TreServico {
         try {
           writeFile(path, sb.toString());
         } catch (IOException e) {
-          System.out.println("Não foi possível escreve no caminho " + path);
+          System.out.println("Não foi possível escrever no caminho " + path);
           e.printStackTrace();
         }
         sb.setLength(0);
@@ -70,33 +72,29 @@ public class TreServico {
     }
 
   public void exportarMunicipio(String caminho, Pilha<Municipio> municipios) {
-    int index = 0;
     StringBuilder sb = new StringBuilder();
     while (!municipios.pilhaVazia()) {
       sb.append(municipios.desempilhar().toString())
               .append("\n");
       try {
-        writeFile(path, sb.toString());
+        writeFile(caminho + "municipio.txt" sb.toString());
       } catch (IOException e) {
-        System.out.println("Não foi possível escrever no caminho " + path);
+        System.out.println("Não foi possível escrever no caminho ");
         e.printStackTrace();
       }
-      index++;
     }
   }
     public void exportarPartido(String caminho, Pilha<Partido> partidos) {
-      int index = 0;
       StringBuilder sb = new StringBuilder();
       while (!partidos.pilhaVazia()) {
         sb.append(partidos.desempilhar().toString())
                 .append("\n");
         try {
-          writeFile(path, sb.toString());
+          writeFile(caminho + "partido.txt", sb.toString());
         } catch (IOException e) {
-          System.out.println("Não foi possível escrever no caminho " + path);
+          System.out.println("Não foi possível escrever no caminho ");
           e.printStackTrace();
         }
-        index++;
       }
     }
 }

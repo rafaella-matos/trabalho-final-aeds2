@@ -2,12 +2,14 @@ package mg.puc;
 
 public class Partido {
 
-  private String nome;
-  private String sigla;
+  private final String nome;
+  private final String sigla;
+  private final String caminho;
 
   public Partido(String nome, String sigla) {
     this.nome = nome;
     this.sigla = sigla;
+    this.caminho = caminho;
   }
 
   public String getNome() {
