@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -54,11 +53,11 @@ public class Urna {
 	 * @return A coleção de urnas.
 	 * @throws IOException sempre que houver algum problema na leitura do arquivo de texto, ou quando não existir.
 	 */
-	public static ArrayList<Urna> fromArquivo(String caminho) throws IOException {
+	public static ListaUrna fromArquivo(String caminho) throws IOException {
 		File arquivoUrnas = new File(caminho);
 		FileReader leitor = new FileReader(arquivoUrnas);
 		BufferedReader leitorBuffer = new BufferedReader(leitor);
-		ArrayList<Urna> urnas = new ArrayList<Urna>();
+		ListaUrna urnas = new ListaUrna();
 		
 		try {
 			String linha = null;
@@ -67,7 +66,7 @@ public class Urna {
 				Urna urna = Urna.fromLinha(linha);
 				
 				if (urna != null)
-					urnas.add(urna);
+					urnas.adicionarUrna(urna);
 			}
 		} finally {
 			leitorBuffer.close();
