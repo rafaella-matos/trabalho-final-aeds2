@@ -50,7 +50,7 @@ public class ListaUrna {
 	/***
 	 * Reinicia o marcador para interações na coleção.
 	 */
-	public void ReiniciarInteracao() {
+	public void reiniciarInteracao() {
 		this.itemAtual = null;
 	}
 }
