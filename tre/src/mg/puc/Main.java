@@ -8,18 +8,36 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Main {
+  static String caminhoParaOsDados = System.getProperty("user.dir") + "/tre/dados/";
+  static TreServico treServico = new TreServico();
 
   public static void main(String[] args) {
-    String caminhoAtual = System.getProperty("user.dir") + "/";
-    TreServico treServico = new TreServico();
+    cadastrarEleitores("eleitores.txt");
+    cadastrarCandidatos("candidatos.txt");
+  }
+
+  public static void cadastrarEleitores(String arquivoParaCadastro){
     Pilha<Eleitor> eleitores = null;
+
     try {
-      eleitores = treServico.cadastrarEleitores(caminhoAtual + "eleitores.txt");
+      eleitores = treServico.cadastrarEleitores(caminhoParaOsDados + arquivoParaCadastro);
     } catch (IOException e) {
       System.out.println("Não foi possível ler o arquivo com eleitores");
       e.printStackTrace();
     }
-    treServico.exportarEleitores(caminhoAtual, eleitores);
+    treServico.exportarEleitores(caminhoParaOsDados, eleitores);
+  }
+
+  public static void cadastrarCandidatos(String arquivoParaCadastro){
+    Pilha<Candidato> candidatos = null;
+
+    try {
+      candidatos = treServico.cadastrarCandidatos(caminhoParaOsDados + arquivoParaCadastro);
+    } catch (IOException e) {
+      System.out.println("Não foi possível ler o arquivo com candidatos");
+      e.printStackTrace();
+    }
+    treServico.exportarCandidatos(caminhoParaOsDados, candidatos);
   }
 
   public static String readFile(String path) throws IOException {
