@@ -7,7 +7,6 @@ public class Eleitor {
   private final String nomeMunicipio;
   private final String zona;
   private final String secao;
-  private final String caminho;
 
   public Eleitor(String nome, long numeroTitulo, String nomeMunicipio, String zona, String secao) {
     this.nome = nome;
@@ -15,7 +14,6 @@ public class Eleitor {
     this.nomeMunicipio = nomeMunicipio;
     this.zona = zona;
     this.secao = secao;
-    this.caminho = caminho;
   }
 
   public String getNome() {
