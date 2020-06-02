@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 public class Main {
 
   public static void main(String[] args) {
-    String caminhoAtual = System.getProperty("user.dir") + "/";
+    String caminhoAtual = System.getProperty("user.dir") + "/dados/";
     TreServico treServico = new TreServico(caminhoAtual);
     Pilha<Eleitor> eleitores = new Pilha<>();
     Pilha<Municipio> municipios = new Pilha<>();
