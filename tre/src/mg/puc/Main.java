@@ -8,36 +8,34 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Main {
-  static String caminhoParaOsDados = System.getProperty("user.dir") + "/tre/dados/";
-  static TreServico treServico = new TreServico();
 
   public static void main(String[] args) {
-    cadastrarEleitores("eleitores.txt");
-    cadastrarCandidatos("candidatos.txt");
-  }
-
-  public static void cadastrarEleitores(String arquivoParaCadastro){
-    Pilha<Eleitor> eleitores = null;
-
+    String caminhoAtual = System.getProperty("user.dir") + "/dados/";
+    TreServico treServico = new TreServico(caminhoAtual);
+    Pilha<Eleitor> eleitores = new Pilha<>();
+    Pilha<Municipio> municipios = new Pilha<>();
+    Pilha<Partido> partidos = new Pilha<>();
     try {
-      eleitores = treServico.cadastrarEleitores(caminhoParaOsDados + arquivoParaCadastro);
+      partidos = treServico.cadastrarPartido("partido.txt");
+    } catch (IOException e) {
+      System.out.println("Não foi possível ler o arquivo com os partidos");
+      e.printStackTrace();
+    }
+    try {
+      eleitores = treServico.cadastrarEleitores("eleitores.txt");
     } catch (IOException e) {
       System.out.println("Não foi possível ler o arquivo com eleitores");
       e.printStackTrace();
     }
-    treServico.exportarEleitores(caminhoParaOsDados, eleitores);
-  }
-
-  public static void cadastrarCandidatos(String arquivoParaCadastro){
-    Pilha<Candidato> candidatos = null;
-
     try {
-      candidatos = treServico.cadastrarCandidatos(caminhoParaOsDados + arquivoParaCadastro);
+      municipios = treServico.cadastraMunicipio("municipio.txt");
     } catch (IOException e) {
-      System.out.println("Não foi possível ler o arquivo com candidatos");
+      System.out.println("Não foi possível ler o arquivo com os municípios");
       e.printStackTrace();
     }
-    treServico.exportarCandidatos(caminhoParaOsDados, candidatos);
+    treServico.exportarEleitores("eleitoresCadastrados.txt", eleitores);
+    treServico.exportarMunicipio("municipiosCadastrados.txt", municipios);
+    treServico.exportarPartido("partidosCadastrados.txt", partidos);
   }
 
   public static String readFile(String path) throws IOException {

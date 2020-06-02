@@ -1,0 +1,6 @@
+Ubá;MG;93;10
+Belo Horizonte;1433;41
+Nova Lima;MG;87;10
+Uberlândia;MG;584;15
+Uberaba;MG;289;14
+Betim;MG;375;10
