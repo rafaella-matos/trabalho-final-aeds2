@@ -1,9 +1,6 @@
 package mg.puc.servico;
 
-import mg.puc.Eleitor;
-import mg.puc.Main;
-import mg.puc.Municipio;
-import mg.puc.Partido;
+import mg.puc.*;
 import mg.puc.modelos.Pilha;
 
 import java.io.IOException;
@@ -102,6 +99,38 @@ public class TreServico {
         System.out.println("Não foi possível escrever no caminho ");
         e.printStackTrace();
       }
+    }
+  }
+
+  public Pilha<Candidato> cadastrarCandidatos(String nomeArquivo) throws IOException {
+    Pilha<Candidato> candidatos = new Pilha<>();
+    String file = Main.readFile(caminho + nomeArquivo);
+    String[] linhas = file.split("\n");
+    for (String linha : linhas) {
+      String[] params = linha.split(";");
+      trimAll(params);
+      candidatos.empilhar(new Candidato(params[0], Long.parseLong(params[1]),
+          params[2], params[3], Cargo.valueOf(params[4])));
+    }
+    return candidatos;
+  }
+
+  public void exportarCandidatos(String nomeArquivo, Pilha<Candidato> candidatos) {
+    int index = 0;
+    StringBuilder sb = new StringBuilder();
+    String path = caminho + nomeArquivo;
+
+    while (!candidatos.pilhaVazia()) {
+      sb.append(candidatos.desempilhar().toString())
+          .append("\n");
+      index++;
+    }
+
+    try {
+      writeFile(path, sb.toString());
+    } catch (IOException e) {
+      System.out.println("Não foi possível escrever no caminho " + path);
+      e.printStackTrace();
     }
   }
 }

@@ -15,6 +15,7 @@ public class Main {
     Pilha<Eleitor> eleitores = new Pilha<>();
     Pilha<Municipio> municipios = new Pilha<>();
     Pilha<Partido> partidos = new Pilha<>();
+    Pilha<Candidato> candidatos = new Pilha<>();
     try {
       partidos = treServico.cadastrarPartido("partido.txt");
     } catch (IOException e) {
@@ -33,9 +34,17 @@ public class Main {
       System.out.println("Não foi possível ler o arquivo com os municípios");
       e.printStackTrace();
     }
+    try {
+      candidatos = treServico.cadastrarCandidatos("candidatos.txt");
+    } catch (IOException e) {
+      System.out.println("Não foi possível ler o arquivo com os candidatos");
+      e.printStackTrace();
+    }
+
     treServico.exportarEleitores("eleitoresCadastrados.txt", eleitores);
     treServico.exportarMunicipio("municipiosCadastrados.txt", municipios);
     treServico.exportarPartido("partidosCadastrados.txt", partidos);
+    treServico.exportarCandidatos("candidatosCadastrados.txt", candidatos);
   }
 
   public static String readFile(String path) throws IOException {
