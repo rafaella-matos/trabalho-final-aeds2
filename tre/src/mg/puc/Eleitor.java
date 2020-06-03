@@ -39,4 +39,16 @@ public class Eleitor {
   @Override public String toString() {
     return nome + ';' + numeroTitulo + ';' + nomeMunicipio + ';' + zona + ';' + secao;
   }
+  
+  @Override public boolean equals(Object obj) {
+	  if (obj == null) { return false; }
+	  
+	  Eleitor temp = (Eleitor)obj;
+	  return
+		  this.nome.equalsIgnoreCase(temp.nome)
+		  && this.numeroTitulo == temp.numeroTitulo
+		  && this.nomeMunicipio.equalsIgnoreCase(temp.nomeMunicipio)
+		  && this.secao.equalsIgnoreCase(temp.secao)
+		  && this.zona.equalsIgnoreCase(temp.zona);
+  }
 }
