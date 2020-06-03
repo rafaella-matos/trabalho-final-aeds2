@@ -1,1 +1,20 @@
-nome; número do título eleitoral; nome do município eleitoral; zona eleitoral; seção eleitoral
+Charlão; 01; Belo Horizonte; 01; 01
+Lucia; 02; Belo Horizonte; 02; 02
+Carlos; 03; Belo Horizonte; 03; 03
+Rikui; 04; Belo Horizonte; 04; 04
+Platão; 05; Belo Horizonte; 05; 05
+Sudi; 06; Belo Horizonte; 06; 06
+Pedro; 07; Belo Horizonte; 07; 07
+Maria; 08; Belo Horizonte; 08; 08
+Hyebag; 09; Belo Horizonte; 09; 09
+Bazon; 10; Belo Horizonte; 10; 10
+Elseaki; 11; Belo Horizonte; 11; 11
+Tokao; 12; Belo Horizonte; 12; 12
+Irak; 13; Belo Horizonte; 13; 13
+Fules; 14; Belo Horizonte; 14; 14
+Anten; 15; Belo Horizonte; 15; 15
+Tiahad; 16; Belo Horizonte; 16; 16
+Elgu; 17; Belo Horizonte; 17; 17
+Hohar; 18; Belo Horizonte; 18; 18
+Soewi; 19; Belo Horizonte; 19; 19
+Luawu; 20; Belo Horizonte; 20; 20

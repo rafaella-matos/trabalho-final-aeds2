@@ -3,12 +3,14 @@ package mg.puc;
 public class Candidato {
   private String nome;
   private long numero;
+  private String municipio;
   private String siglaPartido;
   private Cargo cargo;
 
-  public Candidato(String nome, long numero, String siglaPartido, Cargo cargo) {
+  public Candidato(String nome, long numero, String municipio, String siglaPartido, Cargo cargo) {
     this.nome = nome;
     this.numero = numero;
+    this.municipio = municipio;
     this.siglaPartido = siglaPartido;
     this.cargo = cargo;
   }
@@ -43,5 +45,17 @@ public class Candidato {
 
   public void setCargo(Cargo cargo) {
     this.cargo = cargo;
+  }
+
+  public String getMunicipio() {
+    return municipio;
+  }
+
+  public void setMunicipio(String municipio) {
+    this.municipio = municipio;
+  }
+
+  @Override public String toString() {
+    return nome + ';' + numero + ';' + municipio + ';' + siglaPartido + ';' + cargo;
   }
 }

@@ -2,11 +2,11 @@ package mg.puc;
 
 public class Eleitor {
 
-  private String nome;
-  private long numeroTitulo;
-  private String nomeMunicipio;
-  private String zona;
-  private String secao;
+  private final String nome;
+  private final long numeroTitulo;
+  private final String nomeMunicipio;
+  private final String zona;
+  private final String secao;
 
   public Eleitor(String nome, long numeroTitulo, String nomeMunicipio, String zona, String secao) {
     this.nome = nome;
@@ -34,5 +34,9 @@ public class Eleitor {
 
   public String getSecao() {
     return secao;
+  }
+
+  @Override public String toString() {
+    return nome + ';' + numeroTitulo + ';' + nomeMunicipio + ';' + zona + ';' + secao;
   }
 }
